@@ -16,7 +16,7 @@ todos = [
     },
     {
         "id": "2",
-        "item": "Cycle around town."
+        "item": "Buy clothes."
     }
 ]
 

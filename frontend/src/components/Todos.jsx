@@ -49,6 +49,7 @@ function AddTodo() {
                 body: JSON.stringify(newTodo)
               }).then(fetchTodos)
         }
+        setItem("");
       }
 
       return (
@@ -57,6 +58,7 @@ function AddTodo() {
             <Flex minWidth='max-content' alignItems='center' paddingY="0.5rem">
                 <InputGroup size="md">
                     <Input
+                    value={item}
                     pr="4.5rem"
                     mr="0.5rem"
                     type="text"
@@ -65,8 +67,8 @@ function AddTodo() {
                     onChange={handleInput}
                     />
                 </InputGroup>
-                <AddIcon border="2px solid #e2e8f0" backgroundColor="#e2e8f0" borderRadius="var(--chakra-radii-md)" color="#000" p="6px" m="2px" w={9} h={9} type="submit" value="Submit">Add</AddIcon>
-          </Flex>
+                <AddIcon cursor="pointer" onClick={handleSubmit} border="2px solid #e2e8f0" backgroundColor="#e2e8f0" borderRadius="var(--chakra-radii-md)" color="#000" p="6px" m="2px" w={9} h={9} type="submit" value="Submit">Add</AddIcon>
+            </Flex>
           </Box>
         </form>
       )
@@ -90,7 +92,7 @@ function UpdateTodo({item, id}) {
       return (
         <>
           <Box title="Edit Task">
-            <EditIcon border="2px solid blue" borderRadius="var(--chakra-radii-md)" color="blue" p="6px" m="2px" w={9} h={9} onClick={onOpen}>Update Todo</EditIcon>
+            <EditIcon cursor="pointer" border="2px solid blue" borderRadius="var(--chakra-radii-md)" color="blue" p="6px" m="2px" w={9} h={9} onClick={onOpen}>Update Todo</EditIcon>
           </Box>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay/>
@@ -133,7 +135,7 @@ function DeleteTodo({id}) {
   
     return (
         <Box title="Delete Task">
-            <DeleteIcon border="2px solid red" borderRadius="var(--chakra-radii-md)" color="red" p="6px" m="2px" w={9} h={9} onClick={deleteTodo}>Delete Todo</DeleteIcon>
+            <DeleteIcon cursor="pointer" border="2px solid red" borderRadius="var(--chakra-radii-md)" color="red" p="6px" m="2px" w={9} h={9} onClick={deleteTodo}>Delete Todo</DeleteIcon>
         </Box>
     )
   }
@@ -152,8 +154,8 @@ function DeleteTodo({id}) {
     return (
         <Box title="Checked or Unchecked Task">
             {!isComplete ? 
-            <CheckIcon border="2px solid green" borderRadius="var(--chakra-radii-md)" color="green" p="6px" m="2px" w={9} h={9} onClick={checkTodo}/> :
-            <CloseIcon border="2px solid green" borderRadius="var(--chakra-radii-md)" color="green" p="6px" m="2px" w={9} h={9} onClick={checkTodo}/>}
+            <CheckIcon cursor="pointer" border="2px solid green" borderRadius="var(--chakra-radii-md)" color="green" p="6px" m="2px" w={9} h={9} onClick={checkTodo}/> :
+            <CloseIcon cursor="pointer" border="2px solid green" borderRadius="var(--chakra-radii-md)" color="green" p="6px" m="2px" w={9} h={9} onClick={checkTodo}/>}
         </Box>
     )
   }
